@@ -11,8 +11,10 @@ module.exports = {
     "plugin:node/recommended",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
     "plugin:import/typescript",
   ],
   settings: {
@@ -33,7 +35,7 @@ module.exports = {
       "@typescript-eslint/parser": [".ts"],
     },
   },
-  plugins: ["prettier"],
+  plugins: ["prettier", "@typescript-eslint"],
   parserOptions: {
     project: "./tsconfig.json",
     sourceType: "module",

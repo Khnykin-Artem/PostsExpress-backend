@@ -5,6 +5,6 @@ import compression from "compression";
 const app = express();
 
 app.use(compression());
-app.use(router);
+app.use();
 
 export default app;
