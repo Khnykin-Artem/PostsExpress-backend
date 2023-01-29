@@ -53,5 +53,19 @@ module.exports = {
       "error",
       { ignores: ["modules"] },
     ],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        exceptAfterSingleLine: true,
+      },
+    ],
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      {
+        exceptAfterSingleLine: true,
+      },
+    ],
   },
 };
