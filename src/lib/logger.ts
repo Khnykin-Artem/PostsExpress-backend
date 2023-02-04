@@ -9,6 +9,12 @@ const levels = {
   debug: 4,
 };
 
+type Info = {
+  timestamp?: string;
+  level?: string;
+  message?: string;
+};
+
 const getLevel = function () {
   const env = process.env.NODE_ENV || "development";
   const isDevelopment = env === "development";
@@ -35,7 +41,8 @@ const format = winston.format.combine(
   }),
 
   winston.format.printf(
-    (info: object) => `${info.timestamp} ${info.level}: ${info.message}`
+    ({ timestamp, level, message }: Info): string =>
+      `[${String(timestamp)}] ${String(level)}: ${String(message)}`
   )
 );
 
