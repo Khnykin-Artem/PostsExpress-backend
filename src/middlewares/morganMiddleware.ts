@@ -1,5 +1,5 @@
-import morgan from "morgan";
-import logger from "../lib/logger";
+import morgan from 'morgan';
+import logger from '../lib/logger';
 
 const stream = {
   write(message: any) {
@@ -8,12 +8,12 @@ const stream = {
 };
 
 const skip = function () {
-  const env = process.env.NODE_ENV || "development";
-  return env !== "development";
+  const env = process.env.NODE_ENV || 'development';
+  return env !== 'development';
 };
 
 const morganMiddleware = morgan(
-  ":remote-addr :method :url :status :res[content-length] - :response-time ms",
+  ':remote-addr :method :url :status :res[content-length] - :response-time ms',
   { stream, skip }
 );
 
