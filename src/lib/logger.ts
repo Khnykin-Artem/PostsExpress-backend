@@ -1,5 +1,6 @@
 import winston from 'winston';
 import path from 'path';
+import LoggerInfo from './types/LoggerInfo';
 
 const levels = {
   error: 0,
@@ -7,12 +8,6 @@ const levels = {
   info: 2,
   http: 3,
   debug: 4,
-};
-
-type Info = {
-  timestamp?: string;
-  level?: string;
-  message?: string;
 };
 
 const getLevel = function () {
@@ -41,7 +36,7 @@ const format = winston.format.combine(
   }),
 
   winston.format.printf(
-    ({ timestamp, level, message }: Info): string =>
+    ({ timestamp, level, message }: LoggerInfo): string =>
       `[${String(timestamp)}] ${String(level)}: ${String(message)}`
   )
 );

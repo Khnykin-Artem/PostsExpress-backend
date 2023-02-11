@@ -36,10 +36,15 @@ module.exports = {
     },
   },
   plugins: ["prettier", "@typescript-eslint"],
-  parserOptions: {
-    project: "./tsconfig.json",
-    sourceType: "module",
-  },
+  overrides: [
+    {
+      files: '*.ts',
+      parserOptions: {
+        project: "./tsconfig.json",
+        sourceType: "module",
+      },
+    },
+  ],
   rules: {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
