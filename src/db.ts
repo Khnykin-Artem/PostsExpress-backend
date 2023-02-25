@@ -1,13 +1,11 @@
 import * as db from 'mongoose';
 import config from 'config';
+import DbUrl from './lib/types/DbUrl';
 
-const dbConnect = async function (): void {
-  db.connect(
-    `mongodb://${config.get('db.mongodb.host')}:${config.get(
-      'db.mongodb.port'
-    )}/${config.get('db.mongodb.name')}`,
-    config.get('db.mongodb.settings')
-  ) as unknown;
+const dbUrl = `mongodb://${config.get('db.mongodb.host')}:${config.get('db.mongodb.port')}/${config.get('db.mongodb.name')}` as DbUrl;
+
+const connect = async function (): unknown {
+  db.connect(dbUrl, config.get('db.mongodb.settings')) as unknown;
 };
 
-export default dbConnect;
+export default connect;
