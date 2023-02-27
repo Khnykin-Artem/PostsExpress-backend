@@ -1,13 +1,11 @@
 import * as db from 'mongoose';
-import config from 'config';
+import { config } from 'node-config-ts';
 import DbUrl from './lib/types/DbUrl';
 
-const dbUrl = `mongodb://${config.get('db.mongodb.host')}:${config.get(
-  'db.mongodb.port'
-)}/${config.get('db.mongodb.name')}` as DbUrl;
+const dbUrl: DbUrl = `mongodb://${config.db.mongodb.host}:${config.db.mongodb.port}/${config.db.mongodb.name}`;
 
 const connect = async function (): Promise<any> {
-  await db.connect(dbUrl, config.get('db.mongodb.settings'));
+  await db.connect(dbUrl, config.db.mongodb.settings);
 };
 
 export default connect;
