@@ -1,6 +1,6 @@
 import express from 'express';
 import compression from 'compression';
-import morganMiddleware from './middlewares/morganMiddleware';
+import morganMiddleware from './middleware/morganMiddleware';
 // import router from "./routes/index";
 
 const app = express();
